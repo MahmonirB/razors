@@ -9,10 +9,12 @@
 </script>
 
 <Router>
-  <nav>
+  <nav class="navbar">
     <Link to="/">Home</Link>
     <Link to="/about">About</Link>
     <Link to="/products">Products</Link>
+    <Link to="/products/5">Product 5</Link>
+    <Link to="/products/7">Product 7</Link>
   </nav>
 
   <Route path="/" component={Home} />
