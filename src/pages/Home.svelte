@@ -1,6 +1,7 @@
 <script>
     import { link } from 'svelte-routing';
 import Hero from '../components/Hero.svelte';
+  import FeaturedProducts from '../components/products/FeaturedProducts.svelte';
 </script>
 
 <Hero>
@@ -8,3 +9,4 @@ import Hero from '../components/Hero.svelte';
        shop now
     </a>
 </Hero>
+<FeaturedProducts title="featured products" />
