@@ -8,6 +8,10 @@
   import ProductTemplate from './pages/ProductTemplate.svelte';
 </script>
 
+<svelte:head>
+    <title>Razors</title>
+</svelte:head>
+
 <Router>
   <nav class="navbar">
     <Link to="/">Home</Link>
