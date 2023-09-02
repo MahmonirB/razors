@@ -7,10 +7,12 @@
   import Products from '../pages/Products.svelte';
   import ProductTemplate from '../pages/ProductTemplate.svelte';
   import Navbar from '../components/Navbar/Navbar.svelte';
+  import Sidebar from '../components/Navbar/Sidebar.svelte';
 </script>
 
 <Router>
     <Navbar />
+    <Sidebar />
 
     <Route path="/" component={Home} />
     <Route path="/about" component={About} />
