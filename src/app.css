@@ -214,10 +214,13 @@ Navbar
 }
 .nav-aside {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+  flex-direction: column;
+  margin-top: 48px;
 }
 .nav-aside a {
   margin-right: 1rem;
+  margin-top: 1rem;;
 }
 /* 
 ====== 
