@@ -13,7 +13,7 @@
         out:fly={{ x: -100 }}
         animate:flip
       >
-        <Item cartItem={cartItem} />
+        <Item {...cartItem} />
       </div>
     {:else}
       <h2 class="empty-cart">is currently empty...</h2>
