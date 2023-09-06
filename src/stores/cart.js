@@ -37,11 +37,10 @@ export const increaseCount = (id) => {
   cart.update((storeValue) => handleAmount(id, storeValue, "inc"));
 };
 
-export const decreaseCount = (id) => {
+export const decreaseCount = (id, amount) => {
   cart.update((storeValue) => {
-    const selectedProduct = storeValue.find((item) => item.id === id);
     let newCart;
-    if (selectedProduct?.amount === 1) {
+    if (amount === 1) {
       newCart = remove(id, storeValue);
     } else {
       newCart = handleAmount(id, storeValue, "dec");
@@ -49,5 +48,18 @@ export const decreaseCount = (id) => {
     return [...newCart];
   });
 };
+
+export const addToCart = (product) => {
+  cart.update(storedList => {
+    const item = storedList.find(element => element.id === product.id);
+    let newCart;
+    if (item) {
+      newCart = increaseCount(product.id, storedList, 'inc');
+    } else {
+      newCart = [...storedList, { ...product, amount: 1 }];
+    }
+    return newCart;
+  });
+}
 
 export default cart;
