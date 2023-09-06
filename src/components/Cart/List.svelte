@@ -2,7 +2,11 @@
     import Item from "./ItemList.svelte";
     import { fly } from 'svelte/transition';
     import { flip } from 'svelte/animate';
-    import store, { cartTotal }  from '../../stores/cart';
+    import store, { cartTotal, setStorageCart }  from '../../stores/cart';
+    import { afterUpdate } from "svelte";
+    afterUpdate(() => {
+      setStorageCart($store);
+    });
 </script>
 
 <section class="cart-items">

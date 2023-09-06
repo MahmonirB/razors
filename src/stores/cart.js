@@ -50,4 +50,12 @@ export const decreaseCount = (id) => {
   });
 };
 
+export const setStorageCart = (cart) => {
+  localStorage.setItem('cart', JSON.stringify(cart));
+}
+
+export const getStorageCart = () => {
+  return localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : null;
+}
+
 export default cart;
