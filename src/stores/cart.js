@@ -49,6 +49,14 @@ export const decreaseCount = (id, amount) => {
   });
 };
 
+export const setStorageCart = (cart) => {
+  localStorage.setItem('cart', JSON.stringify(cart));
+}
+
+export const getStorageCart = () => {
+  return localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : null;
+}
+
 export const addToCart = (product) => {
   cart.update(storedList => {
     const item = storedList.find(element => element.id === product.id);
