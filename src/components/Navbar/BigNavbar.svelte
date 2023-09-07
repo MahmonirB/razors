@@ -2,9 +2,11 @@
     import { link } from "svelte-routing";
     import links from "../../constants/links";
   import CartButton from "../Cart/CartButton.svelte";
+  import LoginLink from "../LoginLink/LoginLink.svelte";
   </script>
   
   <nav class="navbar">
+    <div class="nav-container">
       <div class="nav-center">
           <!-- sidebar toggle -->
           <ul class="nav-links">
@@ -19,6 +21,10 @@
               <img src="/assets/images/logo.svg" alt="razors logo" />
           </a>
           <!-- cart button -->
-          <CartButton />
+          <div class="nav-links">
+            <LoginLink />
+            <CartButton />
+          </div>
       </div>
+    </div>
   </nav>

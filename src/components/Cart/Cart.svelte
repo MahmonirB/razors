@@ -2,9 +2,8 @@
     import globalStore from '../../stores/globalStore';
     import { fade, fly, blur } from 'svelte/transition';
     import { link } from 'svelte-routing';
-  import List from './List.svelte';
-    //item list
-    let user = true;
+    import List from './List.svelte';
+    import user from '../../stores/user';
 </script>
 
 <div class="cart-overlay" transition:blur>
@@ -23,7 +22,7 @@
 
             <!-- cart footer -->
             <div class="cart-footer">
-                {#if user}
+                {#if $user.jwt}
                    <a
                    href="/checkout"
                    use:link
