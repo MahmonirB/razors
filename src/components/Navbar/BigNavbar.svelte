@@ -18,7 +18,7 @@
           </ul>
           <!-- logo -->
           <a class="nav-logo" href="/" use:link>
-              <img src="./assets/images/logo.svg" alt="razors logo" />
+              <img src="/assets/images/logo.svg" alt="razors logo" />
           </a>
           <!-- cart button -->
           <div class="nav-links">
