@@ -176,7 +176,7 @@ Navbar
   background: var(--primaryColor);
   top: -45%;
   right: -40%;
-  padding: 0rem 0.3rem;
+  padding: 0rem 0.5rem;
   border-radius: 50%;
   font-size: 1rem;
   color: var(--mainWhite);
