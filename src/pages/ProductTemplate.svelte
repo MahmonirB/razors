@@ -1,7 +1,7 @@
 <script>
     import Loading from '../components/Loading.svelte';
   import { addToCart } from '../stores/cart';
-    import products from '../stores/defaultProducts';
+    import products from '../stores/products';
     import globalStore from '../stores/globalStore.js';
     export let id = '';
 

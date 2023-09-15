@@ -1,7 +1,7 @@
-import { URL } from './URL';
+import URL from './URL';
 
 export default async () => {
-    const response = await fetch(`${URL}/products`);
+    const response = await fetch(`${URL}/api/products?populate=*`);
     const products = response.json();
 
     if (products.error) {
