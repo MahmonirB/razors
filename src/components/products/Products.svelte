@@ -1,5 +1,5 @@
 <script>
-    import products from '../../stores/defaultProducts';
+    import products from '../../stores/products';
   import Loading from '../Loading.svelte';
   import ProductsItem from './ProductsItem.svelte';
     export let title = '';
