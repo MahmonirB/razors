@@ -22,8 +22,8 @@
     {#if $globalStore.cart}
       <Cart />
     {/if}
-    {#if $globalStore.alert}
-    <Alert />
+    {#if $globalStore.alert.severity}
+      <Alert />
     {/if}
   
     <Route path="/" component={Home} />

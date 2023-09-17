@@ -2,12 +2,13 @@
   import { navigate } from "svelte-routing";
   import loginUser from "../strapi/loginUser";
   import registerUser from "../strapi/registerUser";
+  import globalStore from "../stores/globalStore";
 
     let email = '';
     let password = '';
     let username = 'default username';
     let isMember = false;
-    $: isEmpty = !email || !password || !username;
+    $: isEmpty = !email || !password || !username || $globalStore.alert.severity;
 
     function navigateToApp() {
         navigate('/products');
@@ -22,13 +23,19 @@
         }
     }
     async function handleSubmit() {
+        globalStore.toggleItem('alert', { text: 'Loading... Please wait!', severity: 'info' });
         let user;
         if (isMember) {
             user = await loginUser({ email, password });
         } else {
             user = await registerUser({ username, email, password });
         }
-        if (user) navigateToApp();
+        if (user) {
+            globalStore.toggleItem('alert', { text: 'Successful!', severity: 'success' });
+            navigateToApp();
+        } else {
+            globalStore.toggleItem('alert', { text: 'Please try again!', severity: 'danger' });
+        }
     }
 </script>
 <svelte:head>
@@ -75,12 +82,12 @@
         {#if isEmpty}
         <p class="register-link">
             Need to register
-        <button type="button" on:click={toggleMmeber}>click hear</button>
+        <button type="button" on:click={toggleMmeber}>click here</button>
         </p>
         {:else}
         <p class="register-link">
             already a member?
-        <button type="button" on:click={toggleMmeber}>click hear</button>
+        <button type="button" on:click={toggleMmeber}>click here</button>
         </p>
         {/if}
     </form>
