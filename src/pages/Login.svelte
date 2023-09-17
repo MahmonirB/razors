@@ -1,15 +1,33 @@
 <script>
+  import loginUser from "../strapi/loginUser";
+  import registerUser from "../strapi/registerUser";
+
     let email = '';
     let password = '';
     let username = 'default username';
-    let isMember = true;
+    let isMember = false;
     $: isEmpty = !email || !password || !username;
 
-    function toggleMmeber() {}
-    async function handleSubmit() {}
+    function toggleMmeber() {
+        isMember = !isMember;
+        if (!isMember) {
+            username = '';
+        } else {
+            username = 'default username';
+        }
+    }
+    async function handleSubmit() {
+        let user;
+        if (isMember) {
+            user = await loginUser({ email, password });
+        } else {
+            user = await registerUser({ username, email, password });
+        }
+        console.log(user)
+    }
 </script>
 <svelte:head>
-    <title>Login</title>
+    <title>Login/Register</title>
 </svelte:head>
 
 <section class='form'>
@@ -27,7 +45,7 @@
             <input type="password" id="password" bind:value={password} />
         </div>
 
-        {#if isMember}
+        {#if !isMember}
           <div class="form-control">
               <label for="username">username</label>
               <input type="text" id="username" bind:value={username} />
