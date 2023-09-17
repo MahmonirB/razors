@@ -1,4 +1,5 @@
 <script>
+  import { navigate } from "svelte-routing";
   import loginUser from "../strapi/loginUser";
   import registerUser from "../strapi/registerUser";
 
@@ -7,6 +8,10 @@
     let username = 'default username';
     let isMember = false;
     $: isEmpty = !email || !password || !username;
+
+    function navigateToApp() {
+        navigate('/products');
+    }
 
     function toggleMmeber() {
         isMember = !isMember;
@@ -23,7 +28,7 @@
         } else {
             user = await registerUser({ username, email, password });
         }
-        console.log(user)
+        if (user) navigateToApp();
     }
 </script>
 <svelte:head>
