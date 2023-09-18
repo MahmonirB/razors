@@ -6,8 +6,8 @@
 
     let email = '';
     let password = '';
-    let username = 'default username';
-    let isMember = false;
+    let username = '';
+    let isMember = true;
     $: isEmpty = !email || !password || !username || $globalStore.alert.severity;
 
     function navigateToApp() {
@@ -79,7 +79,7 @@
         Submit
         </button>
 
-        {#if isEmpty}
+        {#if isMember}
         <p class="register-link">
             Need to register
         <button type="button" on:click={toggleMmeber}>click here</button>

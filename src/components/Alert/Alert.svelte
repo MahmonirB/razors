@@ -2,6 +2,17 @@
 import { fly, fade } from 'svelte/transition';
 import globalStore from '../../stores/globalStore';
 import { onMount, onDestroy } from 'svelte';
+let timeout;
+onMount(() => {
+    timeout = setTimeout(() => {
+        globalStore.toggleItem('alert', { text: '', severity: '' });
+    }, 3000);
+});
+
+onDestroy(() => {
+	clearTimeout(timeout);
+});
+
 const handleClose = () => {
     globalStore.toggleItem('alert', { text: '', severity: '' });
 };
