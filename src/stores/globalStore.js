@@ -3,7 +3,7 @@ import { writable } from 'svelte/store';
 const globalStore = writable({
     sidebar: false,
     cart: false,
-    alert: false
+    alert: { text: '', severity: '' }
 });
 
 const store = {
@@ -15,7 +15,7 @@ const store = {
                 [item]: value
             }
     });
-}
+    }
 };
 
 export default store;

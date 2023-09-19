@@ -11,6 +11,7 @@
   // global store
   import globalStore from '../stores/globalStore';
   import Cart from '../components/Cart/Cart.svelte';
+  import Alert from '../components/Alert/Alert.svelte';
 </script>
 
 <Router>
@@ -20,6 +21,9 @@
     {/if}
     {#if $globalStore.cart}
       <Cart />
+    {/if}
+    {#if $globalStore.alert.severity}
+      <Alert />
     {/if}
   
     <Route path="/" component={Home} />
