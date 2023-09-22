@@ -26,7 +26,7 @@
         <h3>order total: ${$cartTotal}</h3>
         <!-- single input -->
         <div class="form-control">
-            <label for="name">your name</label>
+            <label for="name">Your name:</label>
             <input type="text" id="name" bind:value={name}>
         </div>
 
@@ -39,14 +39,14 @@
         class="btn btn-block btn-primary"
         disabled={isEmpty}
         class:disabled={isEmpty}
-        >submit
+        >Submit
     </button>
     </form>
   </section>
 {:else}
 <div class="checkout-empty">
    <h2>Your cart is empty</h2>
-   <a href="/products" use:link class="btn btn-primary">
+   <a href="/products" class="btn btn-primary" use:link>
     fill it
    </a>
 </div>
