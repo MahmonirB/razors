@@ -5,7 +5,7 @@ export default async () => {
     const products = response.json();
 
     if (products.error) {
-        console.log(response.error);
+        // console.log(response.error);
     } else {
         return products;
     }

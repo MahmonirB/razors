@@ -66,7 +66,6 @@ export const addToCart = (product) => {
     } else {
       newCart = [...storedList, { ...product, amount: 1 }];
     }
-    console.log(newCart)
     return newCart;
   });
 }

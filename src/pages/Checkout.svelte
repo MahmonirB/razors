@@ -29,9 +29,7 @@
         const response = await stripe.createToken(card);
           const { token } = response;
          if (token) {
-            console.log(token)
             let order = await submitOrder({ name, total: Number($cartTotal), items: $cart, strapiToken: token.id, userToken: $user.jwt });
-        //  console.log(order)
           }
     }
 </script>

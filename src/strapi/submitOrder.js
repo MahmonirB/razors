@@ -2,15 +2,16 @@ import axios from "axios";
 import URL from "./URL";
 
 async function submitOrder({ name, total, items, strapiToken, userToken }) {
-  console.log({ name, total, items, strapiToken, userToken });
   axios
     .post(
       `${URL}/api/orders`,
       {
+        data: {
           name,
           total,
           items,
-          user: strapiToken,
+          strapiTokenId: strapiToken,
+        }
       },
       {
         headers: {
@@ -18,8 +19,11 @@ async function submitOrder({ name, total, items, strapiToken, userToken }) {
         },
       }
     )
-    .then((re) => console.log(res))
-    .catch((err) => console.log(err));
+    .then((re) => 
+    //console.log(res)
+    ).catch((err) => 
+    // console.log(err)
+    );
   // return response;
 }
 export default submitOrder;
