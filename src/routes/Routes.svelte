@@ -12,6 +12,7 @@
   import globalStore from '../stores/globalStore';
   import Cart from '../components/Cart/Cart.svelte';
   import Alert from '../components/Alert/Alert.svelte';
+  import { ROUTES } from './ROUTES';
 </script>
 
 <Router>
@@ -26,10 +27,10 @@
       <Alert />
     {/if}
   
-    <Route path="/" component={Home} />
-    <Route path="/about" component={About} />
-    <Route path="/login" component={Login} />
-    <Route path="/checkout" component={Checkout} />
-    <Route path="/products" component={Products} />
-    <Route path="/products/:id" component={ProductTemplate} />
+    <Route path={ROUTES.home} component={Home} />
+    <Route path={ROUTES.about} component={About} />
+    <Route path={ROUTES.login} component={Login} />
+    <Route path={ROUTES.checkout} component={Checkout} />
+    <Route path={ROUTES.products} component={Products} />
+    <Route path={ROUTES.productsID} component={ProductTemplate} />
   </Router>
